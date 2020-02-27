@@ -10,4 +10,10 @@
 ## 4.查看配置的用户名和邮箱
     git config user.name
     git config user.email
+## 5.定义命令别名
+    git config --global alias.st status：则git status可用git st代替
+    git config --global alias.co checkout：则git checkout可用git co代替
+    git config --global alias.ci commit：则git commit可用git ci代替
+    git config --global alias.br branch：则git branch可用git br代替
+
 
