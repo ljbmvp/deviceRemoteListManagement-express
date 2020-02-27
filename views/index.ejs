@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">           
+      <title><%= title %></title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/navbar-static-top.css" />   
+
+  </head>
+  <body>
+      <% include header %> 
+
+       <% if (locals.error) { %> 
+        <div id="alt_warning" class="alert alert-warning container"> 
+          <%= error %> 
+        </div> 
+      <% } %> 
+       <div class="container" > <a class="btn  btn-primary" href="/driverAdd" role="button">添加</a></div>
+      <div class="table-responsive">
+      
+      
+
+ <!--  <div id="divCondition">
+    <form action="/customer/search" method="post">
+      <select id="selectCondition" name="conditionKey">
+        <option value="username">客户名称</option>
+        <option value="email">联系邮箱</option>
+        <option value="mobile">联系电话</option>
+      </select>
+      <input type="text" id="txtCondition" name="conditionValue"/>
+      <input type="submit" id="btnSearch" value="查询"/>
+      <a href="customer/add">新增客户</a>
+    </form>
+  </div> -->
+  <div  class="container">
+  <!-- <h2>基本样式 (只有横向分隔线)</h2> -->
+    <table class="table table-striped table-bordered table-hover table-condensed">
+    <!-- <thead> -->
+      <tr >
+        <th>id</th>
+        <th>设备名称</th>
+        <th>远程ID</th>
+        <th>备注</th>
+        <th>操作</th>
+
+      </tr>
+      
+      <% results.forEach(function(item,index) { %>
+      <tr class="success">
+        <td><%= index+1 %></td>
+        <td><%= item.DriveName %></td>
+        <td><%= item.DriveNo %></td>
+         <td><%= item.Remarks %></td>
+        <td>
+          <a href="/driverEdit/<%= item.DriveName %>/<%= item.DriveNo %>/<%= item.Remarks %>/<%= item.Id %>">修改</a>&nbsp;&nbsp;
+          <a href="/driverlist/delete/<%= item.DriveName %>">删除</a>
+        </td>
+      </tr>
+      <% }); %>
+    
+    </table>
+  </div>
+</div>
+  </body>
+</html>
